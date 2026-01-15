@@ -33,8 +33,8 @@ if __name__ == "__main__":
             time.sleep(1)
 
     except KeyboardInterrupt:
-        print("\n\n[MAIN] User interrupt detected. Shutting down simulation...")
+        print("\n\n🛑 [MAIN] User interrupt detected. Shutting down simulation...")
         # Graceful termination of child processes
         sensor_process.terminate()
         balancer_process.terminate()
-        print("System successfully terminated.")
+        print("✅ System successfully terminated.")
