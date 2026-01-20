@@ -14,7 +14,7 @@ def generate_data(sensor_id):
         "timestamp": time.strftime("%H:%M:%S"),
         "temperature": round(random.uniform(25.0, 85.0), 2), # Range: 25°C to 85°C
         "vibration_freq": round(random.uniform(1.0, 10.0), 2), # Range: 1Hz to 10Hz
-        "processing_load": random.randint(5, 20) # Simulates the computational weight of the packet
+        "processing_load": random.randint(50, 100) # Simulates the computational weight of the packet
     }
 
 def start_sensors(data_queue):
