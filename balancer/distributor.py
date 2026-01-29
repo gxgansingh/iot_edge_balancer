@@ -23,7 +23,7 @@ def log_metrics(core_loads, assigned_core, sensor_id):
 def heavy_computation(load_factor, assigned_core):
     """Background task to keep CPU busy"""
     dummy = 0
-    for i in range(load_factor * 2000000): # Thoda heavy loop
+    for i in range(load_factor * 2000000): # heavy loop
         dummy += i
 
 def balance_and_distribute(data_queue):
@@ -38,10 +38,10 @@ def balance_and_distribute(data_queue):
             
             # 2. ALGORITHM UPDATE: Randomized Selection among Free Cores
             min_load = min(core_loads)
-            # Un sabhi cores ki list banao jo sabse free hain
+            # for the list of core loads, find all cores that have the minimum load
             candidates = [i for i, load in enumerate(core_loads) if load == min_load]
             
-            # Unme se random pick karo (Taaki graph spread ho)
+            # random pick (for graph spread)
             best_core = random.choice(candidates)
             
             # 3. Log & Execute
