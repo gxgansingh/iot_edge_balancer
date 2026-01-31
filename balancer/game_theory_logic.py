@@ -23,3 +23,9 @@ def log_metrics(core_loads, assigned_core, sensor_id):
             writer.writerow(headers)
         row = [time.strftime("%H:%M:%S"), sensor_id, assigned_core] + core_loads
         writer.writerow(row)
+
+def heavy_computation(load_factor, assigned_core):
+    """Background task simulation"""
+    dummy = 0
+    for i in range(load_factor * 2000000): 
+        dummy += i
