@@ -41,3 +41,17 @@ def game_theory_balance(data_queue):
             core_loads = psutil.cpu_percent(interval=None, percpu=True)
             total_cores = len(core_loads)
             
+            # 2. GAME THEORY ALGORITHM: Calculate Probabilities (Utility Function)
+            # Logic: More Free Space = Higher Probability of Selection
+            # Formula: Utility_i = (100 - Load_i)
+            
+            utilities = [(100 - load) for load in core_loads]
+            total_utility = sum(utilities)
+            
+            if total_utility == 0:
+                # If all cores are fully loaded, use uniform distribution
+                probabilities = [1/total_cores] * total_cores
+            else:
+                # Normalize values to get Probability Distribution (0.0 to 1.0)
+                probabilities = [u / total_utility for u in utilities]
+            
