@@ -30,30 +30,14 @@ def heavy_computation(load_factor, assigned_core):
     for i in range(load_factor * 2000000): 
         dummy += i
 
-def balance_and_distribute(data_queue):
-    print("✅ [BALANCER] Load Balancer Active. Monitoring CPU Cores...")
+def game_theory_balance(data_queue):
+    print("[GAME THEORY] Balancer Active using Mixed Strategy Nash Equilibrium...")
     
     while True:
         if not data_queue.empty():
             sensor_data = data_queue.get()
             
-            # 1. Check CPU Load
+            # 1. Get Current State (Load of all cores)
             core_loads = psutil.cpu_percent(interval=None, percpu=True)
+            total_cores = len(core_loads)
             
-            # 2. ALGORITHM UPDATE: Randomized Selection among Free Cores
-            min_load = min(core_loads)
-            candidates = [i for i, load in enumerate(core_loads) if load == min_load]
-            best_core = random.choice(candidates)
-            
-            # 3. Log & Execute
-            print(f"🔄 Routing {sensor_data['sensor_id']} -> CPU Core {best_core} (Load: {min_load}%)")
-            log_metrics(core_loads, best_core, sensor_data['sensor_id'])
-            
-            task_thread = threading.Thread(
-                target=heavy_computation, 
-                args=(sensor_data["processing_load"], best_core)
-            )
-            task_thread.start()
-            
-        else:
-            time.sleep(0.01)
