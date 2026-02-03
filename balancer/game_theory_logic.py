@@ -55,3 +55,7 @@ def game_theory_balance(data_queue):
                 # Normalize values to get Probability Distribution (0.0 to 1.0)
                 probabilities = [u / total_utility for u in utilities]
             
+            # 3. Decision Making based on Weighted Randomness (Mixed Strategy)
+            # Instead of picking the absolute min, we pick based on probability weights
+            best_core = random.choices(range(total_cores), weights=probabilities, k=1)[0]
+            
