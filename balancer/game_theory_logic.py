@@ -59,3 +59,18 @@ def game_theory_balance(data_queue):
             # Instead of picking the absolute min, we pick based on probability weights
             best_core = random.choices(range(total_cores), weights=probabilities, k=1)[0]
             
+            # 4. Log & Execute
+            # Note: Printing the chosen probability for better insight into the decision
+            chosen_prob = round(probabilities[best_core], 2)
+            print(f"Strategy: {sensor_data['sensor_id']} -> CPU {best_core} (Load: {core_loads[best_core]}%, Prob: {chosen_prob})")
+            
+            log_metrics(core_loads, best_core, sensor_data['sensor_id'])
+            
+            task_thread = threading.Thread(
+                target=heavy_computation, 
+                args=(sensor_data["processing_load"], best_core)
+            )
+            task_thread.start()
+            
+        else:
+            time.sleep(0.01)
