@@ -12,7 +12,7 @@ import config
 
 if __name__ == "__main__":
     print("==========================================================")
-    print("🧠 IOT EDGE: GAME THEORY LOAD BALANCING SIMULATION")
+    print(" IOT EDGE: GAME THEORY LOAD BALANCING SIMULATION")
     print("   Algorithm: Non-Cooperative Mixed Strategy")
     print("==========================================================")
     
@@ -32,7 +32,7 @@ if __name__ == "__main__":
             time.sleep(1)
 
     except KeyboardInterrupt:
-        print("\n\n🛑 [MAIN] Shutting down Game Theory Simulation...")
+        print("\n\n [MAIN] Shutting down Game Theory Simulation...")
         sensor_process.terminate()
         balancer_process.terminate()
-        print("✅ System successfully terminated.")
+        print("System successfully terminated.")
