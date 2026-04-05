@@ -1,0 +1,49 @@
+# --- Python Bytecode & Cache ---
+__pycache__/
+*.py[cod]
+*$py.class
+
+# --- Virtual Environments ---
+venv/
+.venv/
+env/
+ENV/
+bin/
+lib/
+develop-eggs/
+dist/
+eggs/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# --- Data & Logs ---
+# Ignore the high-frequency traffic history logs to keep the repo light
+*.log
+traffic_history.csv
+*.csv
+*.json
+!metadata.json  # Keep metadata if you have any static config
+
+# --- IDE & System Files ---
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# --- Research/Report Artifacts ---
+# Ignore temporary LaTeX or Word lock files if you keep them in the same repo
+~$*.doc*
+*.bak
+*.tmp
+
+ml_future/
+faltu/
