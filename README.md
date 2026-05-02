@@ -64,3 +64,19 @@ The orchestrator then uses weighted random selection to scatter tasks across cor
 
 - Python 3.10+
 - Packages listed in [requirements.txt](requirements.txt)
+
+## Installation
+
+Create and activate a virtual environment, then install the dependencies:
+
+```bash
+python -m venv .venv
+.venv\Scripts\activate
+pip install -r requirements.txt
+```
+
+If you are using PowerShell and execution policy blocks activation, run:
+
+```powershell
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy RemoteSigned
+```
