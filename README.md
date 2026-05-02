@@ -38,3 +38,11 @@ $$P_i = \frac{U_i}{\sum_{j=1}^{16} U_j}$$
 
 
 The orchestrator then uses weighted random selection to scatter tasks across cores, creating a more even and self-healing distribution.
+
+## Features
+
+- Synthetic sensor stream with configurable sensor count and generation interval.
+- CPU-load-aware routing of work to an available core.
+- Two balancing strategies: deterministic minimum-load selection and weighted random selection.
+- CSV logging of routing decisions for later analysis.
+- Visualization script for plotting task distribution across cores.
