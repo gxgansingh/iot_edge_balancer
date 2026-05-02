@@ -18,3 +18,7 @@ In high-velocity IoT environments, edge nodes can be hit by many data packets at
 Most deterministic load balancers keep choosing the same best-looking core, which can cause core clumping: one CPU core gets overloaded while the others stay underused. This project treats resource allocation as a non-cooperative game so that no single core is overwhelmed.
 
 ## Educational Deep Dive
+
+### 1. Bypassing the Python GIL
+
+Standard Python code is restricted by the Global Interpreter Lock, which prevents one process from using multiple cores at the same time. This project uses inter-process communication and `multiprocessing` to create independent worker processes, allowing hardware-level parallelism on a multi-core system.
