@@ -97,3 +97,13 @@ If you are using PowerShell and execution policy blocks activation, run:
 ```powershell
 Set-ExecutionPolicy -Scope Process -ExecutionPolicy RemoteSigned
 ```
+
+## Visualization
+
+After running the game-theory simulation, create the distribution plot with:
+
+```bash
+python visualize.py
+```
+
+Note that `visualize.py` currently reads `logs/game_theory_metrics.csv` directly.
