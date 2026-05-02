@@ -22,3 +22,19 @@ Most deterministic load balancers keep choosing the same best-looking core, whic
 ### 1. Bypassing the Python GIL
 
 Standard Python code is restricted by the Global Interpreter Lock, which prevents one process from using multiple cores at the same time. This project uses inter-process communication and `multiprocessing` to create independent worker processes, allowing hardware-level parallelism on a multi-core system.
+
+
+### 2. The Math: Mixed Strategy Nash Equilibrium
+
+Instead of a fixed round-robin approach, the CPU cores are treated as players in a game. The system calculates a utility value for each core:
+
+$$U_i = 100 - L_i$$
+
+where $L_i$ is the current percentage load of core $i$.
+
+To avoid sending all tasks to the single freest core, the utilities are normalized into a probability vector:
+
+$$P_i = \frac{U_i}{\sum_{j=1}^{16} U_j}$$
+
+
+The orchestrator then uses weighted random selection to scatter tasks across cores, creating a more even and self-healing distribution.
