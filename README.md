@@ -75,6 +75,23 @@ python -m venv .venv
 pip install -r requirements.txt
 ```
 
+## Running the Simulations
+
+Run the basic balancer:
+
+```bash
+python main.py
+```
+
+Run the game-theory balancer:
+
+```bash
+python main_game_theory.py
+```
+
+Each run prints sensor activity and core routing decisions to the console while appending metrics to the CSV log file.
+
+
 If you are using PowerShell and execution policy blocks activation, run:
 
 ```powershell
