@@ -16,3 +16,5 @@ Both variants use `multiprocessing.Queue` to pass synthetic sensor events from `
 In high-velocity IoT environments, edge nodes can be hit by many data packets at the same millisecond, creating a thundering herd effect.
 
 Most deterministic load balancers keep choosing the same best-looking core, which can cause core clumping: one CPU core gets overloaded while the others stay underused. This project treats resource allocation as a non-cooperative game so that no single core is overwhelmed.
+
+## Educational Deep Dive
