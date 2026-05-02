@@ -115,3 +115,9 @@ You can adjust the simulation in [config.py](config.py):
 - `NUM_SENSORS` controls how many virtual sensors are generated per cycle.
 - `GENERATION_INTERVAL` controls how often synthetic packets are emitted.
 - `LOG_FILE_PATH` controls where the CSV metrics are written.
+
+## Notes
+
+- The project simulates load balancing behavior on the local machine; it does not deploy to physical edge hardware.
+- `main.py` writes to `logs/system_metrics.csv`.
+- `main_game_theory.py` writes to `logs/game_theory_metrics.csv`.
