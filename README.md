@@ -107,3 +107,11 @@ python visualize.py
 ```
 
 Note that `visualize.py` currently reads `logs/game_theory_metrics.csv` directly.
+
+## Configuration
+
+You can adjust the simulation in [config.py](config.py):
+
+- `NUM_SENSORS` controls how many virtual sensors are generated per cycle.
+- `GENERATION_INTERVAL` controls how often synthetic packets are emitted.
+- `LOG_FILE_PATH` controls where the CSV metrics are written.
