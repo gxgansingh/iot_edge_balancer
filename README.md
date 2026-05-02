@@ -10,3 +10,9 @@ The repository contains two runnable simulations:
 - `main_game_theory.py` starts the sensor generator and the mixed-strategy game-theory balancer.
 
 Both variants use `multiprocessing.Queue` to pass synthetic sensor events from `sensors/virtual_sensors.py` to the balancer logic in `balancer/`.
+
+## Introduction
+
+In high-velocity IoT environments, edge nodes can be hit by many data packets at the same millisecond, creating a thundering herd effect.
+
+Most deterministic load balancers keep choosing the same best-looking core, which can cause core clumping: one CPU core gets overloaded while the others stay underused. This project treats resource allocation as a non-cooperative game so that no single core is overwhelmed.
